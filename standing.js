@@ -18,15 +18,15 @@ Standing.prototype.magic = function() {
 };
 
 Standing.prototype.fight = function(game, hypo) {
-	var next = _.clone(this.current);
+	var next = _.map(this.current, _.clone);
 
 	next.forEach(function(row) {
 		if (row.team == game.home) {
 			row[hypo.home] += 1;
-			row[hypo.home].g += 1;
+			row.g += 1;
 		} else if (row.team == game.guest) {
 			row[hypo.guest] += 1;
-			row[hypo.guest].g += 1;
+			row.g += 1;
 		}
 	});
 	
