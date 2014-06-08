@@ -2,21 +2,27 @@
 	schedule = require('./schedule.js'),
 	config = require('./config.js');
 	
-var hypothesis = config.hypothesis;
+var hypothesis = config.hypothesis,
+	firstStanding = new Standing(config.standing, schedule.first());
 	
-	var firstStanding = new Standing(config.standing);
-	console.log('init:');
-	console.log(firstStanding);
+doing(firstStanding);
+	
+var doing = function cal(standing, game) {
 	hypothesis.forEach(function(hypo) {
-		console.log(firstStanding.fight(schedule.first(), hypo));
-	
+		var nextStanding = standing.fight(game, hypo);
+		
+		if (nextStanding.hasKing()) {
+			console.log(nextStanding);
+			return;
+		}
+		
+		if (schedule.hasNext(game)) {
+			cal(nextStanding)
+		}
+		return;
 	});
+}
 	/**
-	
-	for each condition
-	home win
-	guest win
-	tie
 	
 	get next standing
 	if there exist a magin number for top 1, then show it

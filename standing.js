@@ -1,11 +1,14 @@
 ﻿var config = require('./config.js'),
-	_ = require('underscore');
+	_ = require('underscore'),
+	schedule = require('./schedule.js');
 
 function Standing(standing) {
 	this.current = standing;
 }
 
 Standing.prototype.magic = function() {
+	var current = this.current;
+	
 	//(應賽場數-第一名和局數)/(應賽場數-第二名和局數)*(應賽場數-第二名敗場數-第二名和局數)-第一名勝場數
 	var mn = (60 - current[0].tie) / (60 - current[1].tie) * (60 - current[1].lose - current[1].tie) - current[0].win
 	mn = Math.round(mn);
@@ -14,6 +17,7 @@ Standing.prototype.magic = function() {
 	if(mn > (60 - current[0].g) - schedule.leftGames(current[0].team, current[1].team)) {
 		mn = null;
 	}
+	this.magicNumber = mn;
 	return mn;
 };
 
