@@ -1,0 +1,10 @@
+{
+    "name": "longlivetheking",
+    "private": true,
+    "version": "0.0.0",
+    "description": "Who shall be the king?",
+    "main": "app.js",
+    "repository": "",
+    "author": "",
+    "license": ""
+}
