@@ -2,39 +2,45 @@
 	_ = require('underscore'),
 	schedule = require('./schedule.js');
 
-function Standing(standing) {
-	this.current = standing;
+function Standing(rank, game) {
+	this.rank = rank;
+	this.game = game;
 }
 
 Standing.prototype.magic = function() {
-	var current = this.current;
+	var rank = this.rank;
 	
 	//(應賽場數-第一名和局數)/(應賽場數-第二名和局數)*(應賽場數-第二名敗場數-第二名和局數)-第一名勝場數
-	var mn = (60 - current[0].tie) / (60 - current[1].tie) * (60 - current[1].lose - current[1].tie) - current[0].win
+	var mn = (60 - rank[0].tie) / (60 - rank[1].tie) * (60 - rank[1].lose - rank[1].tie) - rank[0].win
 	mn = Math.round(mn);
 	
 	// mn要小於等於第一名剩餘未賽場次-第一名與第二名剩餘未賽場次才成立
-	if(mn > (60 - current[0].g) - schedule.leftGames(current[0].team, current[1].team)) {
+	if(mn > (60 - rank[0].played) - schedule.leftGames(rank[0].team, rank[1].team)) {
 		mn = null;
 	}
 	this.magicNumber = mn;
 	return mn;
 };
 
-Standing.prototype.fight = function(game, hypo) {
-	var next = _.map(this.current, _.clone);
+Standing.prototype.fight = function(hypo) {
+	var tempRank = _.map(this.rank, _.clone),
+		game = this.game;
 
-	next.forEach(function(row) {
+	tempRank.forEach(function(row) {
 		if (row.team == game.home) {
 			row[hypo.home] += 1;
-			row.g += 1;
+			row.played += 1;
 		} else if (row.team == game.guest) {
 			row[hypo.guest] += 1;
-			row.g += 1;
+			row.played += 1;
 		}
 	});
 	
-	return new Standing(next);
+	_.sortBy(tempRank, 'win');
+	
+	var nextStanding = new Standing(tempRank);
+	nextStanding.magic();
+	return nextStanding;
 };
 
 module.exports = Standing;

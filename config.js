@@ -99,10 +99,10 @@ module.exports = {
 		},
 	],
 	
-	standing : [
+	rank : [
 			{   
 				team : 'monkey',
-				g : 53,
+				played : 53,
 				win : 32,
 				tie : 2,
 				lose : 19,
@@ -110,7 +110,7 @@ module.exports = {
 			
 			{
 				team : 'lion',
-				g : 52,
+				played : 52,
 				win : 28,
 				tie : 3,
 				lose : 21,
@@ -118,7 +118,7 @@ module.exports = {
 			
 			{
 				team : 'rhino',
-				g : 50,
+				played : 50,
 				win : 24,
 				tie : 0,
 				lose : 26,
@@ -126,7 +126,7 @@ module.exports = {
 			
 			{
 				team : 'elephant', 
-				g : 53,
+				played : 53,
 				win : 17,
 				tie : 1,
 				lose : 35,
