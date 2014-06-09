@@ -3,25 +3,33 @@
 	config = require('./config.js');
 	
 var hypothesis = config.hypothesis,
-	firstStanding = new Standing(config.standing, schedule.first());
+	firstStanding = new Standing(config.rank, schedule.first());
+
+	var flat = 0;
 	
-doing(firstStanding);
+	console.log('init standing:', firstStanding);
 	
-var doing = function cal(standing, game) {
+var go = function cal(standing) {
+	console.log('parent node:', standing);
+
 	hypothesis.forEach(function(hypo) {
-		var nextStanding = standing.fight(game, hypo);
-		
-		if (nextStanding.hasKing()) {
-			console.log(nextStanding);
-			return;
+		flat++;
+		var result = standing.fight(hypo);
+			console.log('line:', hypo);
+		if (standing.game.hasNext()) {
+			result.game = standing.game.next();
+			console.log('child node:', result);
+			if (flat < 10){
+			
+				cal(result);
+			}
 		}
-		
-		if (schedule.hasNext(game)) {
-			cal(nextStanding)
-		}
-		return;
+	
 	});
 }
+
+go(firstStanding);
+	
 	/**
 	
 	get next standing
