@@ -6,7 +6,7 @@ module.exports = (function() {
 		that = {};
 	
 	var hasNext = function() {
-		return this.index <= (Math.min(_schedule.length , 2) - 1);
+		return this.index <= (Math.min(_schedule.length , 1) - 1);
 	};
 	
 	var next = function() {
