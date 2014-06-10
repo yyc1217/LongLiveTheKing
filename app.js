@@ -8,12 +8,12 @@ var hypothesis = config.hypothesis,
 
 var outputPath = './result.json';
 	
-var go = function cal(standing) {
+var go = function cal(standing, parent) {
 
 	var children = [];	
 	var parentNode = {
 		name : standing.game.guest + ' v.s. ' + standing.game.home,
-		parent : null,
+		parent : parent,
 		children : children,
 	};
 	
@@ -24,13 +24,14 @@ var go = function cal(standing) {
 				name : standing.game.home + ' ' + hypo.home + ', ' + standing.game.guest + ' ' + hypo.guest,
 				magicNumber : result.magicNumber,
 				tobeKing : result.rank[0].team,
+				parent : parentNode.name,
 			};
 
 		if (standing.game.hasNext()) {
 			result.game = standing.game.next();
-			childNode.children = cal(result);
-			children.push(childNode);
+			(childNode.children ? childNode.children : childNode.children = []).push(cal(result, childNode.name));
 		}
+		children.push(childNode);
 	});
 	
 	return parentNode;
