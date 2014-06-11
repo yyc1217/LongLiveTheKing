@@ -11,27 +11,22 @@
 
 .node circle.lion {
   fill: orange;
-  stroke: orange;
 }
 
 .node circle.monkey {
-  fill : steelblue;
-  stroke: steelblue;
+  fill : #4CC4F7;
 }
 
 .node circle.elephant {
 	fill : yellow;
-	stroke: yellow;
 }
 
 .node circle.rhino {
 	fill : purple;
-	stroke: purple;
 }
 
 .node circle.tie {
-	fill : grey;
-	stroke:grey;
+	fill : rgba(224, 224, 224, 1);
 }
 
 text.magic {
@@ -72,7 +67,7 @@ d3.json("result.json", function(error, root) {
   var nodes = tree.nodes(root),
       links = tree.links(nodes);
 
-	  nodes.forEach(function(d) {d.y = d.depth * 130;});
+	  nodes.forEach(function(d) {d.y = d.depth * 100;});
 	  
   var link = svg.selectAll(".link")
       .data(links)
@@ -99,17 +94,22 @@ d3.json("result.json", function(error, root) {
 		.attr('class', 'magic')
 		.text(function(d){
 			if (d.tobeKing) {
-			
 				if (d.parent && d.parent.parent && d.parent.parent.magicNumber == 0) {
 					return '';
 				}
 				if (d.magicNumber == 0){
-					return d.tobeKing + ' is King';
+					return d.tobeKing + '封王!';
 				} else if (d.magicNumber == null){
 					return '';
 				} else {
 					return d.tobeKing + ' M' + d.magicNumber;
 				}
+			}
+		}).each(function(d){
+			if (!d.children) {
+				d3.select(this)
+				.attr('dy', '.3em')
+				.attr('dx', '1em');
 			}
 		});
 	  
@@ -126,7 +126,7 @@ d3.json("result.json", function(error, root) {
 		.append('text')
 		.attr('dy', '1.5em')
 		.attr('dx', '-3.7em')
-		.text(function(d) {return d.game ? d.game.guest + ' v.s. ' + d.game.home : 'ddd';});
+		.text(function(d) {return d.game ? d.game.guest + ' v.s. ' + d.game.home : '';});
 	 });
 });
 
