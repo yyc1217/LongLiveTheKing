@@ -1,10 +1,11 @@
 ﻿var Standing = require('./standing.js'),
 	schedule = require('./schedule.js'),
+	init = require('./init/init.js'),
 	config = require('./config.js'),
 	fs = require('fs');
 	
 var hypothesis = config.hypothesis,
-	firstStanding = new Standing(config.rank, schedule.first());
+	firstStanding = new Standing(init.rank, schedule.first());
 
 var outputPath = './result.json';
 	

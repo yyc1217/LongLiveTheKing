@@ -1,12 +1,13 @@
 ﻿var _ = require('underscore'),
-	config = require('./config.js');
+	config = require('./config.js'),
+	init = require('./init/init.js');
 
 module.exports = (function() {
-	var _schedule = config.schedule,
+	var _schedule = init.schedule,
 		that = {};
 	
 	var hasNext = function() {
-		return this.index <= (Math.min(_schedule.length , 1) - 1);
+		return this.index <= (Math.min(_schedule.length , config.maxGame) - 1);
 	};
 	
 	var next = function() {
