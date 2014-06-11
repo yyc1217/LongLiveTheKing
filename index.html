@@ -6,7 +6,8 @@
 	stroke-width : 1.5px;
 	fill : #FFF;
 	stroke : black;
-}
+	r : 10;
+	}
 
 .node circle.lion {
   fill: orange;
@@ -34,7 +35,7 @@
 }
 
 .node {
-  font: 10px sans-serif;
+  font: 15px sans-serif;
 }
 
 .link {
@@ -48,25 +49,27 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
-var diameter = 1160;
+var height = 1260, width = 1060;
 
 var tree = d3.layout.tree()
-    .size([360, diameter / 2 - 120])
-    .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
+    .size([width, height])
+    .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2); });
 
-var diagonal = d3.svg.diagonal.radial()
-    .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
+var diagonal = d3.svg.diagonal()
+    .projection(function(d) { return [d.y, d.x]; });
 
 var svg = d3.select("body").append("svg")
-    .attr("width", diameter)
-    .attr("height", diameter)
+    .attr("width", width)
+    .attr("height", height)
   .append("g")
-    .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+    .attr("transform", "translate(100,50)");
 
 d3.json("result.json", function(error, root) {
   var nodes = tree.nodes(root),
       links = tree.links(nodes);
 
+	  nodes.forEach(function(d) {d.y = d.depth * 120;});
+	  
   var link = svg.selectAll(".link")
       .data(links)
     .enter().append("path")
@@ -76,28 +79,28 @@ d3.json("result.json", function(error, root) {
   var node = svg.selectAll(".node")
       .data(nodes)
     .enter().append("g")
-      .attr("class", "node")
-      .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
+      .attr("class", function(d) { return 'node ' + (d.game ? 'run' : 'result');})
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
 
   node.append("circle")
-      .attr("r", 5)
+      .attr("r", 7)
 	  .attr('class', function(d) {	
 		if (!d.game) {
 			return d.winner;
 		}
 	  });
 
-  node.append("text")
-      .attr("dy", ".31em")
-      .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
-      .attr("transform", function(d) { return d.x < 180 ? "translate(10)" : "rotate(180)translate(-10)"; })
-      .text(function(d) {
+	  node.append('text')
+	  .attr("dy", "1em")
+	  .attr('dx', '1em')
+	  .text(function(d) {
 			if (!d.game) {
 				return d.winner;
-			} 
+			}
 		});
+	 
 });
 
-d3.select(self.frameElement).style("height", diameter + "px");
+d3.select(self.frameElement).style("height", height + "px");
 
 </script>
