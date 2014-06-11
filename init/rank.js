@@ -2,26 +2,26 @@
 module.exports = [
 			{   
 				team : 'monkey',
-				played : 53,
-				win : 32,
+				played : 55,
+				win : 34,
 				tie : 2,
 				lose : 19,
 			},
 			
 			{
 				team : 'lion',
-				played : 52,
+				played : 53,
 				win : 28,
 				tie : 3,
-				lose : 21,
+				lose : 22,
 			},
 			
 			{
 				team : 'rhino',
-				played : 50,
+				played : 51,
 				win : 24,
 				tie : 0,
-				lose : 26,
+				lose : 27,
 			},
 			
 			{

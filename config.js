@@ -1,6 +1,6 @@
 ﻿
 module.exports = {
-	maxGame : 3,
+	maxGame : 4,
 	hypothesis : [
 		{ 
 			home : 'win',

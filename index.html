@@ -34,6 +34,10 @@
 	stroke:grey;
 }
 
+text.magic {
+	fill: red;
+}
+
 .node {
   font: 15px sans-serif;
 }
@@ -49,11 +53,11 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
-var height = 1260, width = 1060;
+var height = 2260, width = 1760;
 
 var tree = d3.layout.tree()
     .size([width, height])
-    .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2); });
+    .separation(function(a, b) { return (a.parent == b.parent ? 13 : 10); });
 
 var diagonal = d3.svg.diagonal()
     .projection(function(d) { return [d.y, d.x]; });
@@ -68,7 +72,7 @@ d3.json("result.json", function(error, root) {
   var nodes = tree.nodes(root),
       links = tree.links(nodes);
 
-	  nodes.forEach(function(d) {d.y = d.depth * 120;});
+	  nodes.forEach(function(d) {d.y = d.depth * 130;});
 	  
   var link = svg.selectAll(".link")
       .data(links)
@@ -84,21 +88,46 @@ d3.json("result.json", function(error, root) {
 
   node.append("circle")
       .attr("r", 7)
-	  .attr('class', function(d) {	
-		if (!d.game) {
-			return d.winner;
-		}
-	  });
+	  .attr('class', function(d) {return !d.game ? d.winner : '';});
 
-	  node.append('text')
-	  .attr("dy", "1em")
-	  .attr('dx', '1em')
-	  .text(function(d) {
-			if (!d.game) {
-				return d.winner;
+	  svg.selectAll('.node.result')
+	  .each(function(d){
+		d3.select(this)
+		.append('text')
+		.attr('dy', '-.8em')
+		.attr('dx', '-2.4em')
+		.attr('class', 'magic')
+		.text(function(d){
+			if (d.tobeKing) {
+			
+				if (d.parent && d.parent.parent && d.parent.parent.magicNumber == 0) {
+					return '';
+				}
+				if (d.magicNumber == 0){
+					return d.tobeKing + ' is King';
+				} else if (d.magicNumber == null){
+					return '';
+				} else {
+					return d.tobeKing + ' M' + d.magicNumber;
+				}
 			}
 		});
-	 
+	  
+	  });
+	 var runs = svg.selectAll('.node.run')
+	 .each(function(d) {
+		d3.select(this)
+		.append('text')
+		.attr('dy', '-1em')
+		.attr('dx', '-2.4em')
+		.text(function(d) { return d.game ? d.game.date : '';});
+		
+		d3.select(this)
+		.append('text')
+		.attr('dy', '1.5em')
+		.attr('dx', '-3.7em')
+		.text(function(d) {return d.game ? d.game.guest + ' v.s. ' + d.game.home : 'ddd';});
+	 });
 });
 
 d3.select(self.frameElement).style("height", height + "px");

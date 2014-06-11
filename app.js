@@ -20,7 +20,7 @@ var go = function cal(standing, parent) {
 	};
 	
 	hypothesis.forEach(function(hypo) {
-		
+	
 		var result = standing.fight(hypo),
 			childNode = {
 				name : parentNode.game.date + ' ' + parentNode.game.home + ' ' + hypo.home + ', ' + parentNode.game.guest + ' ' + hypo.guest,

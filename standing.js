@@ -18,7 +18,7 @@ Standing.prototype.magic = function() {
 	if(mn > (60 - rank[0].played) - schedule.leftGames(rank[0].team, rank[1].team)) {
 		mn = null;
 	}
-	this.magicNumber = mn;
+	this.magicNumber = mn > -1 ? mn : null; 
 	return mn;
 };
 

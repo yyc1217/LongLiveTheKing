@@ -1,18 +1,6 @@
 
 module.exports = [
 		{
-			serial : 111,
-			date : '2014-06-08',
-			home : 'lion',
-			guest : 'monkey',
-		},
-		{
-			serial : 113,
-			date : '2014-06-11',
-			home : 'rhino',
-			guest : 'monkey',
-		},
-		{
 			serial : 114,
 			date : '2014-06-12',
 			home : 'lion',
