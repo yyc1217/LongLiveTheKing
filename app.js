@@ -11,10 +11,14 @@ var outputPath = './result.json';
 	
 var go = function cal(standing, parent) {
 
+	if (standing.magicNumber == 0) { //already has a king
+		return null;
+	}
+
 	var children = [];	
 	var parentNode = {
 		name : standing.game.date + ' ' + standing.game.guest + ' v.s. ' + standing.game.home,
-		parent : parent,
+		parent : parent ? parent.name : null,
 		children : children,
 		game : standing.game,
 	};
@@ -32,7 +36,10 @@ var go = function cal(standing, parent) {
 
 		if (standing.game.hasNext()) {
 			result.game = standing.game.next();
-			(childNode.children ? childNode.children : childNode.children = []).push(cal(result, childNode.name));
+			var nextNode = cal(result, childNode); // null if already has a king
+			if (nextNode) {
+				(childNode.children ? childNode.children : childNode.children = []).push(nextNode);
+			}
 		}
 		children.push(childNode);
 	});
@@ -48,12 +55,4 @@ fs.writeFile(outputPath, JSON.stringify(d, null, 4), function(err){
 	} else {
 		console.log('saved!');
 	}
-
 });
-	/**
-	
-	get next standing
-	if there exist a magin number for top 1, then show it
-	
-	
-	*/
