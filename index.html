@@ -3,9 +3,34 @@
 <style>
 
 .node circle {
-  fill: #fff;
+	stroke-width : 1.5px;
+	fill : #FFF;
+	stroke : black;
+}
+
+.node circle.lion {
+  fill: orange;
+  stroke: orange;
+}
+
+.node circle.monkey {
+  fill : steelblue;
   stroke: steelblue;
-  stroke-width: 1.5px;
+}
+
+.node circle.elephant {
+	fill : yellow;
+	stroke: yellow;
+}
+
+.node circle.rhino {
+	fill : purple;
+	stroke: purple;
+}
+
+.node circle.tie {
+	fill : grey;
+	stroke:grey;
 }
 
 .node {
@@ -23,7 +48,7 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
-var diameter = 960;
+var diameter = 1160;
 
 var tree = d3.layout.tree()
     .size([360, diameter / 2 - 120])
@@ -34,7 +59,7 @@ var diagonal = d3.svg.diagonal.radial()
 
 var svg = d3.select("body").append("svg")
     .attr("width", diameter)
-    .attr("height", diameter - 150)
+    .attr("height", diameter)
   .append("g")
     .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
@@ -55,15 +80,24 @@ d3.json("result.json", function(error, root) {
       .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
 
   node.append("circle")
-      .attr("r", 4.5);
+      .attr("r", 5)
+	  .attr('class', function(d) {	
+		if (!d.game) {
+			return d.winner;
+		}
+	  });
 
   node.append("text")
       .attr("dy", ".31em")
       .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
-      .attr("transform", function(d) { return d.x < 180 ? "translate(8)" : "rotate(180)translate(-8)"; })
-      .text(function(d) { return d.tobeKing ? d.tobeKing + ':' + d.magicNumber : ''; });
+      .attr("transform", function(d) { return d.x < 180 ? "translate(10)" : "rotate(180)translate(-10)"; })
+      .text(function(d) {
+			if (!d.game) {
+				return d.winner;
+			} 
+		});
 });
 
-d3.select(self.frameElement).style("height", diameter - 150 + "px");
+d3.select(self.frameElement).style("height", diameter + "px");
 
 </script>

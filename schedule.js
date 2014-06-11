@@ -7,7 +7,7 @@ module.exports = (function() {
 		that = {};
 	
 	var hasNext = function() {
-		return this.index <= (Math.min(_schedule.length , config.maxGame) - 1);
+		return this.index < (Math.min(_schedule.length , config.maxGame) - 1);
 	};
 	
 	var next = function() {

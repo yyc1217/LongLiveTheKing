@@ -13,19 +13,21 @@ var go = function cal(standing, parent) {
 
 	var children = [];	
 	var parentNode = {
-		name : standing.game.guest + ' v.s. ' + standing.game.home,
+		name : standing.game.date + ' ' + standing.game.guest + ' v.s. ' + standing.game.home,
 		parent : parent,
 		children : children,
+		game : standing.game,
 	};
 	
 	hypothesis.forEach(function(hypo) {
 		
 		var result = standing.fight(hypo),
 			childNode = {
-				name : standing.game.home + ' ' + hypo.home + ', ' + standing.game.guest + ' ' + hypo.guest,
+				name : parentNode.game.date + ' ' + parentNode.game.home + ' ' + hypo.home + ', ' + parentNode.game.guest + ' ' + hypo.guest,
 				magicNumber : result.magicNumber,
 				tobeKing : result.rank[0].team,
 				parent : parentNode.name,
+				winner : (hypo.home == 'win' ? parentNode.game.home : (hypo.home == 'lose' ? parentNode.game.guest : 'tie')),
 			};
 
 		if (standing.game.hasNext()) {
@@ -39,6 +41,7 @@ var go = function cal(standing, parent) {
 }
 
 var d = go(firstStanding);
+
 fs.writeFile(outputPath, JSON.stringify(d, null, 4), function(err){
 	if (err) {
 		console.log(err);
@@ -47,7 +50,6 @@ fs.writeFile(outputPath, JSON.stringify(d, null, 4), function(err){
 	}
 
 });
-	
 	/**
 	
 	get next standing

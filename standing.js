@@ -37,7 +37,6 @@ Standing.prototype.fight = function(hypo) {
 	});
 	
 	_.sortBy(tempRank, 'win');
-	
 	var nextStanding = new Standing(tempRank);
 	nextStanding.magic();
 	return nextStanding;
