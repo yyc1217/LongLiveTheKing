@@ -38,7 +38,7 @@ module.exports = [
 		},
 		{
 			serial : 120,
-			date : '2014-06-14',
+			date : '2014-06-15',
 			home : 'rhino',
 			guest : 'lion',
 		},

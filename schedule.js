@@ -20,7 +20,6 @@ module.exports = (function() {
 		elem.next = next;
 	});
 	
-	
 	that.first = function() {
 			return _schedule[0];
 	};
@@ -28,10 +27,6 @@ module.exports = (function() {
 	that.leftGames = function(team1, team2) {
 			return _.reduce(_schedule, function(memo, game) {return (game.home == team1 && game.guest == team2 || game.guest ==team1 && game.home == team2) ? 1 : 0; }, 0);
 	};
-		
-	that.hasNext = function(game) {
-		
-	}
 	return that;
 
 })();
