@@ -129,7 +129,15 @@ d3.json("result.json", function (error, root) {
 				}
 			}
 		});
-
+		
+		d3.select(this)
+		.append('text')
+		.attr('dy', '.3em')
+		.attr('dx', '-1em')
+		.attr('text-anchor', 'end')
+		.text(function(d){
+			return d.winner == 'tie' ? dictionary[d.winner] : dictionary[d.winner] + dictionary['win'];
+		});
 	});
 	var runs = svg.selectAll('.node.run')
 		.each(function (d) {
