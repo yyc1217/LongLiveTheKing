@@ -67,7 +67,7 @@ var svg = d3.select("body").append("svg")
 	.append("g")
 	.attr("transform", "translate(100,50)");
 
-d3.json("result.json.js", function (error, root) {
+d3.json("result.json", function (error, root) {
 	var nodes = tree.nodes(root),
 	links = tree.links(nodes);
 
