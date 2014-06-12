@@ -48,82 +48,97 @@ text.magic {
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
-var height = 2360, width = 2180;
+var height = 3660, width = 3180;
 
 var tree = d3.layout.tree()
-    .size([width, height])
-    .separation(function(a, b) { return (a.parent == b.parent ? 13 : 10); });
+	.size([width, height])
+	.separation(function (a, b) {
+		return (a.parent == b.parent ? 13 : 10);
+	});
 
 var diagonal = d3.svg.diagonal()
-    .projection(function(d) { return [d.y, d.x]; });
+	.projection(function (d) {
+		return [d.y, d.x];
+	});
 
 var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-  .append("g")
-    .attr("transform", "translate(100,50)");
+	.attr("width", width)
+	.attr("height", height)
+	.append("g")
+	.attr("transform", "translate(100,50)");
 
-d3.json("result.json", function(error, root) {
-  var nodes = tree.nodes(root),
-      links = tree.links(nodes);
+d3.json("result.json.js", function (error, root) {
+	var nodes = tree.nodes(root),
+	links = tree.links(nodes);
 
-	  nodes.forEach(function(d) {d.y = d.depth * 130;});
-	  
-  var link = svg.selectAll(".link")
-      .data(links)
-    .enter().append("path")
-      .attr("class", "link")
-      .attr("d", diagonal);
+	nodes.forEach(function (d) {
+		d.y = d.depth * 130;
+	});
 
-  var node = svg.selectAll(".node")
-      .data(nodes)
-    .enter().append("g")
-      .attr("class", function(d) { return 'node ' + (d.game ? 'run' : 'result');})
-      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+	var link = svg.selectAll(".link")
+		.data(links)
+		.enter().append("path")
+		.attr("class", "link")
+		.attr("d", diagonal);
 
-  node.append("circle")
-      .attr("r", 7)
-	  .attr('class', function(d) {return !d.game ? d.winner : '';});
+	var node = svg.selectAll(".node")
+		.data(nodes)
+		.enter().append("g")
+		.attr("class", function (d) {
+			return 'node ' + (d.game ? 'run' : 'result');
+		})
+		.attr("transform", function (d) {
+			return "translate(" + d.y + "," + d.x + ")";
+		})
 
-	  svg.selectAll('.node.result')
-	  .each(function(d){
+		node.append("circle")
+		.attr("r", 7)
+		.attr('class', function (d) {
+			return !d.game ? d.winner : '';
+		});
+
+	svg.selectAll('.node.result')
+	.each(function (d) {
 		d3.select(this)
 		.append('text')
 		.attr('dy', '.3em')
 		.attr('dx', '1em')
 		.attr('class', 'magic')
-		.text(function(d){
+		.text(function (d) {
 			if (d.tobeKing) {
 				if (d.parent && d.parent.parent && d.parent.parent.magicNumber == 0) {
 					return '';
 				}
-				if (d.magicNumber == 0){
-					return '♛' + d.tobeKing;
-				} else if (d.magicNumber == null){
+				if (d.magicNumber == 0) {
+					return '?' + d.tobeKing;
+				} else if (d.magicNumber == null) {
 					return '';
 				} else {
 					return d.tobeKing + ' M' + d.magicNumber;
 				}
 			}
 		});
-	  
-	  });
-	 var runs = svg.selectAll('.node.run')
-	 .each(function(d) {
-		d3.select(this)
-		.append('text')
-		.attr('dy', '-.8em')
-		.attr('dx', '-2.4em')
-		.text(function(d) { return d.game ? d.game.date : '';});
-		
-		d3.select(this)
-		.append('text')
-		.attr('dy', '1.3em')
-		.attr('dx', '-3.7em')
-		.text(function(d) {return d.game ? d.game.guest + ' v.s. ' + d.game.home : '';});
-	 });
+
+	});
+	var runs = svg.selectAll('.node.run')
+		.each(function (d) {
+			d3.select(this)
+			.append('text')
+			.attr('dy', '-.8em')
+			.attr('dx', '-2.4em')
+			.text(function (d) {
+				return d.game ? d.game.date : '';
+			});
+
+			d3.select(this)
+			.append('text')
+			.attr('dy', '1.3em')
+			.attr('dx', '-3.7em')
+			.text(function (d) {
+				return d.game ? d.game.guest + ' v.s. ' + d.game.home : '';
+			});
+		});
 });
 
 d3.select(self.frameElement).style("height", height + "px");
-
 </script>
