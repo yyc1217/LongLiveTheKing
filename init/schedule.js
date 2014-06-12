@@ -1,12 +1,6 @@
 
 module.exports = [
 		{
-			serial : 114,
-			date : '2014-06-12',
-			home : 'lion',
-			guest : 'elephant',
-		},
-		{
 			serial : 115,
 			date : '2014-06-13',
 			home : 'monkey',
@@ -80,8 +74,14 @@ module.exports = [
 		},
 		{
 			serial : 104,
-			date : '2014-06-15',
+			date : '2014-06-26',
 			home : 'lion',
 			guest : 'rhino',
+		},
+				{
+			serial : 114,
+			date : '2014-06-27',
+			home : 'lion',
+			guest : 'elephant',
 		},
 	]
