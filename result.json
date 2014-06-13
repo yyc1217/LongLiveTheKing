@@ -97,43 +97,7 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
@@ -313,43 +277,7 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
@@ -493,43 +421,7 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
@@ -637,43 +529,7 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
@@ -745,43 +601,7 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
@@ -817,129 +637,21 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "rhino",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino win, lion lose",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "rhino"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino lose, lion win",
                                                                                             "magicNumber": 2,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": null,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "tie",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino tie, lion tie",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "tie"
                                                                                         }
                                                                                     ],
                                                                                     "game": {
@@ -975,86 +687,14 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "tie",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino tie, lion tie",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "tie"
                                                                                         }
                                                                                     ],
                                                                                     "game": {
@@ -1119,86 +759,14 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "tie",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino tie, lion tie",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "tie"
                                                                                         }
                                                                                     ],
                                                                                     "game": {
@@ -1234,43 +802,7 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
@@ -1371,86 +903,14 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "tie",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino tie, lion tie",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "tie"
                                                                                         }
                                                                                     ],
                                                                                     "game": {
@@ -1522,43 +982,7 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
@@ -1695,86 +1119,14 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "tie",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino tie, lion tie",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "tie"
                                                                                         }
                                                                                     ],
                                                                                     "game": {
@@ -1810,43 +1162,7 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
@@ -1918,43 +1234,7 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
@@ -2062,43 +1342,7 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
@@ -2271,86 +1515,14 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "tie",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino tie, lion tie",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "tie"
                                                                                         }
                                                                                     ],
                                                                                     "game": {
@@ -2422,43 +1594,7 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
@@ -2602,43 +1738,7 @@
                                                                                             "magicNumber": 1,
                                                                                             "tobeKing": "monkey",
                                                                                             "parent": "2014-06-15 lion v.s. rhino",
-                                                                                            "winner": "lion",
-                                                                                            "children": [
-                                                                                                {
-                                                                                                    "name": "2014-06-17 rhino v.s. monkey",
-                                                                                                    "parent": "2014-06-15 rhino lose, lion win",
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey win, rhino lose",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "monkey"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey lose, rhino win",
-                                                                                                            "magicNumber": 1,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "rhino"
-                                                                                                        },
-                                                                                                        {
-                                                                                                            "name": "2014-06-17 monkey tie, rhino tie",
-                                                                                                            "magicNumber": 0,
-                                                                                                            "tobeKing": "monkey",
-                                                                                                            "parent": "2014-06-17 rhino v.s. monkey",
-                                                                                                            "winner": "tie"
-                                                                                                        }
-                                                                                                    ],
-                                                                                                    "game": {
-                                                                                                        "serial": 56,
-                                                                                                        "date": "2014-06-17",
-                                                                                                        "home": "monkey",
-                                                                                                        "guest": "rhino",
-                                                                                                        "index": 6
-                                                                                                    }
-                                                                                                }
-                                                                                            ]
+                                                                                            "winner": "lion"
                                                                                         },
                                                                                         {
                                                                                             "name": "2014-06-15 rhino tie, lion tie",
