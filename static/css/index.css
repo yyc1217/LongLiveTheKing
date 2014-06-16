@@ -1,0 +1,41 @@
+
+.node circle {
+	stroke-width : 1.5px;
+	fill : #FFF;
+	stroke : black;
+	r : 10;
+	}
+
+.node circle.lion {
+  fill: orange;
+}
+
+.node circle.monkey {
+  fill : #4CC4F7;
+}
+
+.node circle.elephant {
+	fill : yellow;
+}
+
+.node circle.rhino {
+	fill : rgba(225, 24, 223, 1);
+}
+
+.node circle.tie {
+	fill : rgba(224, 224, 224, 1);
+}
+
+text.magic {
+	fill: red;
+}
+
+.node {
+  font: 15px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
