@@ -10,10 +10,10 @@ var dictionary = {
 	tie : '和'
 };
 
-var height = 3660, width = 3180;
+var height = 960, width = 980;
 
 var tree = d3.layout.tree()
-	.size([width, height])
+	.size([height, width])
 	.separation(function (a, b) {
 		return (a.parent == b.parent ? 13 : 10);
 	});
@@ -29,8 +29,20 @@ var svg = d3.select("body").append("svg")
 	.append("g")
 	.attr("transform", "translate(100,50)");
 
-d3.json("result.json", function (error, root) {
-	var nodes = tree.nodes(root),
+d3.json("result.json", function (error, json) {
+	
+	var pre = tree.nodes(json);
+	
+	function re(d) {
+		if (d.depth == 3) {
+			d._children = d.children;
+			d.children = null;
+		}
+	}
+	pre.forEach(re);
+	console.log(json);
+	
+	var nodes = tree.nodes(json),
 	links = tree.links(nodes);
 
 	nodes.forEach(function (d) {
@@ -111,3 +123,9 @@ d3.json("result.json", function (error, root) {
 });
 
 d3.select(self.frameElement).style("height", height + "px");
+
+function disableOverLevel(root, level) {
+	var limit = level * 2 - 1;
+	
+	//function re(
+}
