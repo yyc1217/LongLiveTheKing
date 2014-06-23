@@ -27,14 +27,14 @@ var svg = d3.select("body").append("svg")
 	.attr("width", width)
 	.attr("height", height)
 	.append("g")
-	.attr("transform", "translate(100,50)");
+	.attr("transform", "translate(100,0)");
 
 d3.json("result.json", function (error, json) {
 	
 	var pre = tree.nodes(json);
 	
 	function re(d) {
-		if (d.depth == 3) {
+		if (d.depth == 5) {
 			d._children = d.children;
 			d.children = null;
 		}
@@ -123,9 +123,3 @@ d3.json("result.json", function (error, json) {
 });
 
 d3.select(self.frameElement).style("height", height + "px");
-
-function disableOverLevel(root, level) {
-	var limit = level * 2 - 1;
-	
-	//function re(
-}
