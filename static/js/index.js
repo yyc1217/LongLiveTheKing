@@ -12,6 +12,8 @@ var dictionary = {
 
 var height = 960, width = 980;
 
+var duration = 3000;
+
 var tree = d3.layout.tree()
 	.size([height, width])
 	.separation(function (a, b) {
@@ -36,7 +38,7 @@ d3.json("result.json", function (error, json) {
 	
 	//calculate node's depth
 	tree.nodes(json);
-	update(3);
+	update(1);
 
 });
 
@@ -47,16 +49,16 @@ function update(level) {
 	var limit = level * 2 - 1;
  
 	function cut(d) {
-		d.children && d.children.forEach(cut);
+
 		if (d.depth == limit) {
 			d._children = d.children;
 			d.children = null;
 		} else {
 			d.children = d._children || d.children;
 			d._children = null;
-			
 		}
-		//console.log('limit:', limit, ' d.depth:', d.depth,  ' children:', d.children, ' _children:', d._children,' d:', d);
+		d.children && d.children.forEach(cut);
+		d._children && d._children.forEach(cut);
 	}
 	root.children.forEach(cut);
  
@@ -68,20 +70,26 @@ function update(level) {
 	});
 
 	var link = svg.selectAll(".link")
-		.data(links)
-		.enter().append("path")
+		.data(links);
+		
+		link.enter().append("path")
 		.attr("class", "link")
+		.transition()
+		.duration(duration)
 		.attr("d", diagonal);
 
 	var node = svg.selectAll(".node")
-		.data(nodes)
-		.enter().append("g")
+		.data(nodes);
+		
+		node.enter().append("g")
 		.attr("class", function (d) {
 			return 'node ' + (d.game ? 'run' : 'result');
 		})
+		.transition()
+		.duration(duration)
 		.attr("transform", function (d) {
 			return "translate(" + d.y + "," + d.x + ")";
-		})
+		});
 
 		node.append("circle")
 		.attr("r", 7)
@@ -89,6 +97,11 @@ function update(level) {
 			return !d.game ? d.winner : '';
 		});
 
+		// node.exit()
+		// .transition()
+		// .duration(duration)
+		// .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+				console.log('ddd');
 	svg.selectAll('.node.result')
 	.each(function (d) {
 		d3.select(this)
@@ -110,7 +123,7 @@ function update(level) {
 				}
 			}
 		});
-		
+		console.log('ddd');
 		d3.select(this)
 		.append('text')
 		.attr('dy', '.3em')
@@ -120,6 +133,7 @@ function update(level) {
 			return d.winner == 'tie' ? dictionary[d.winner] : dictionary[d.winner] + dictionary['win'];
 		});
 	});
+			console.log('ddd');
 	var runs = svg.selectAll('.node.run')
 		.each(function (d) {
 			d3.select(this)
