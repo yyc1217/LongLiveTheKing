@@ -29,20 +29,38 @@ var svg = d3.select("body").append("svg")
 	.append("g")
 	.attr("transform", "translate(100,0)");
 
+var root;	
+	
 d3.json("result.json", function (error, json) {
+	root = json;
 	
-	var pre = tree.nodes(json);
-	
-	function re(d) {
-		if (d.depth == 5) {
+	//calculate node's depth
+	tree.nodes(json);
+	update(3);
+
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+function update(level) {
+ 
+	var limit = level * 2 - 1;
+ 
+	function cut(d) {
+		d.children && d.children.forEach(cut);
+		if (d.depth == limit) {
 			d._children = d.children;
 			d.children = null;
+		} else {
+			d.children = d._children || d.children;
+			d._children = null;
+			
 		}
+		//console.log('limit:', limit, ' d.depth:', d.depth,  ' children:', d.children, ' _children:', d._children,' d:', d);
 	}
-	pre.forEach(re);
-	console.log(json);
-	
-	var nodes = tree.nodes(json),
+	root.children.forEach(cut);
+ 
+	var nodes = tree.nodes(root),
 	links = tree.links(nodes);
 
 	nodes.forEach(function (d) {
@@ -120,6 +138,4 @@ d3.json("result.json", function (error, json) {
 				return d.game ? dictionary[d.game.guest] + ' v.s. ' + dictionary[d.game.home] : '';
 			});
 		});
-});
-
-d3.select(self.frameElement).style("height", height + "px");
+}
