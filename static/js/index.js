@@ -12,7 +12,7 @@ var dictionary = {
 
 var height = 960, width = 980;
 
-var duration = 3000;
+var duration = 6000;
 
 var tree = d3.layout.tree()
 	.size([height, width])
@@ -36,6 +36,9 @@ var root;
 d3.json("result.json", function (error, json) {
 	root = json;
 	
+	root.parent = { x : 0, y : (height / 2) };
+	
+	
 	//calculate node's depth
 	tree.nodes(root);
 	
@@ -46,13 +49,11 @@ d3.json("result.json", function (error, json) {
 	
 	root.children.forEach(cutFirst);	
 	
-	//recalculate node's layout
+	//recalculate tree's layout
 	var nodes = tree.nodes(root),
 		links = tree.links(nodes);
 
-	nodes.forEach(function (d) {
-		d.y = d.depth * 130;
-	});
+	nodes.forEach(normalize);
 	
 	var link = svg.selectAll(".link")
 		.data(links)
@@ -98,30 +99,50 @@ function update(level) {
 		d.children && d.children.forEach(cut);
 		d._children && d._children.forEach(cut);
 	}
+	console.log('before:', root);
 	root.children.forEach(cut);
- 
+	console.log('after:', root);
+	//recaculate tree's layout
 	var nodes = tree.nodes(root),
-	links = tree.links(nodes);
+		links = tree.links(nodes);
 
-	nodes.forEach(function (d) {
-		d.y = d.depth * 130;
-	});
+	nodes.forEach(normalize);
 
 	var link = svg.selectAll(".link")
 		.data(links);
 		
-		link.enter().append("path")
+	link.enter()
+		.insert('path', 'g')
 		.attr("class", "link")
-		.transition()
+		.attr('d', function(d) {
+			var o = {x: d.source.parent.x, y: d.source.parent.y};
+			return diagonal({source: o, target: o});
+		});
+
+	link.transition()
 		.duration(duration)
 		.attr("d", diagonal);
-
+	
+	link.exit()
+		.transition()
+		.duration(duration)
+		.attr('d', function(d) {
+			var o = {x:d.source.parent.x, y: d.source.parent.y};
+			return diagonal({source: o, target: o});
+		})
+		.remove();
+		
+		
 	var node = svg.selectAll(".node")
 		.data(nodes);
 		
-		node.enter().append("g")
+	node.enter()
+		.append("g")
 		.attr("class", function (d) {
 			return 'node ' + (d.game ? 'run' : 'result');
+		})
+		.attr('transform', function (d) {
+			return 'translate(' + d.parent.y + ',' + d.parent.x + ')';
 		})
 		.transition()
 		.duration(duration)
@@ -129,18 +150,23 @@ function update(level) {
 			return "translate(" + d.y + "," + d.x + ")";
 		});
 
-		node.append("circle")
+	node.append("circle")
 		.attr("r", 7)
 		.attr('class', function (d) {
 			return !d.game ? d.winner : '';
 		});
 
-		// node.exit()
-		// .transition()
-		// .duration(duration)
-		// .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
-				console.log('ddd');
+	node.exit()
+		.transition()
+		.duration(duration)
+		.attr("transform", function(d) { return "translate(" + d.parent.y + "," + d.parent.x + ")"; })
+		.remove();
+		
 	renderText();
+}
+
+function normalize(d) {
+	d.y = d.depth * 130;
 }
 
 function renderText() {
