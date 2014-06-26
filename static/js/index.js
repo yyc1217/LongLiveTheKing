@@ -77,7 +77,7 @@ d3.json("result.json", function (error, json) {
 			return !d.game ? d.winner : '';
 		});
 		
-	render();
+	renderText();
 });
 
 d3.select(self.frameElement).style("height", height + "px");
@@ -140,59 +140,10 @@ function update(level) {
 		// .duration(duration)
 		// .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 				console.log('ddd');
-	svg.selectAll('.node.result')
-	.each(function (d) {
-		d3.select(this)
-		.append('text')
-		.attr('dy', '.3em')
-		.attr('dx', '1em')
-		.attr('class', 'magic')
-		.text(function (d) {
-			if (d.tobeKing) {
-				if (d.parent && d.parent.parent && d.parent.parent.magicNumber == 0) {
-					return '';
-				}
-				if (d.magicNumber == 0) {
-					return dictionary[d.tobeKing] + '封王';
-				} else if (d.magicNumber == null) {
-					return '';
-				} else {
-					return dictionary[d.tobeKing] + ' M' + d.magicNumber;
-				}
-			}
-		});
-		console.log('ddd');
-		d3.select(this)
-		.append('text')
-		.attr('dy', '.3em')
-		.attr('dx', '-1em')
-		.attr('text-anchor', 'end')
-		.text(function(d){
-			return d.winner == 'tie' ? dictionary[d.winner] : dictionary[d.winner] + dictionary['win'];
-		});
-	});
-			console.log('ddd');
-	var runs = svg.selectAll('.node.run')
-		.each(function (d) {
-			d3.select(this)
-			.append('text')
-			.attr('dy', '-.8em')
-			.attr('dx', '-2.4em')
-			.text(function (d) {
-				return d.game ? d.game.date : '';
-			});
-
-			d3.select(this)
-			.append('text')
-			.attr('dy', '1.3em')
-			.attr('dx', '-1.9em')
-			.text(function (d) {
-				return d.game ? dictionary[d.game.guest] + ' v.s. ' + dictionary[d.game.home] : '';
-			});
-		});
+	renderText();
 }
 
-function render() {
+function renderText() {
 
 	svg.selectAll('.node.result')
 	.each(function (d) {
