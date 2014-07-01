@@ -46,9 +46,9 @@ d3.json("result.json", function (error, json) {
 		d._children = d.children;
 		d.children = null;
 	};
-	
+
 	root.children.forEach(cutFirst);	
-	
+	console.log('loaded json:', root);
 	//recalculate tree's layout
 	var nodes = tree.nodes(root),
 		links = tree.links(nodes);
@@ -115,7 +115,7 @@ function update(level) {
 		.insert('path', 'g')
 		.attr("class", "link")
 		.attr('d', function(d) {
-			var o = {x: d.source.parent.x, y: d.source.parent.y};
+			var o = {x: root.x, y: root.y};
 			return diagonal({source: o, target: o});
 		});
 
@@ -127,7 +127,7 @@ function update(level) {
 		.transition()
 		.duration(duration)
 		.attr('d', function(d) {
-			var o = {x:d.source.parent.x, y: d.source.parent.y};
+			var o = {x:root.x, y: root.y};
 			return diagonal({source: o, target: o});
 		})
 		.remove();
@@ -142,24 +142,25 @@ function update(level) {
 			return 'node ' + (d.game ? 'run' : 'result');
 		})
 		.attr('transform', function (d) {
-			return 'translate(' + d.parent.y + ',' + d.parent.x + ')';
-		})
-		.transition()
-		.duration(duration)
-		.attr("transform", function (d) {
-			return "translate(" + d.y + "," + d.x + ")";
+			return 'translate(' + root.y + ',' + root.x + ')';
 		});
-
+		
 	node.append("circle")
 		.attr("r", 7)
 		.attr('class', function (d) {
 			return !d.game ? d.winner : '';
 		});
+		
+	node.transition()
+		.duration(duration)
+		.attr("transform", function (d) {
+			return "translate(" + d.y + "," + d.x + ")";
+		});
 
 	node.exit()
 		.transition()
 		.duration(duration)
-		.attr("transform", function(d) { return "translate(" + d.parent.y + "," + d.parent.x + ")"; })
+		.attr("transform", function(d) { return "translate(" + root.y + "," + root.x + ")"; })
 		.remove();
 		
 	renderText();
