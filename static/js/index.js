@@ -99,9 +99,9 @@ function update(level) {
 		d.children && d.children.forEach(cut);
 		d._children && d._children.forEach(cut);
 	}
-	//console.log('before:', root);
+	console.log('before:', root);
 	root.children.forEach(cut);
-	//console.log('after:', root);
+	console.log('after:', root);
 	//recaculate tree's layout
 	var nodes = tree.nodes(root),
 		links = tree.links(nodes);
@@ -146,23 +146,30 @@ function update(level) {
 		});
 		
 	nodeEnter.append("circle")
-		.attr("r", 7)
+		.attr("r", 1e-6)
 		.attr('class', function (d) {
 			return !d.game ? d.winner : '';
 		});
 		
-	nodeEnter.transition()
+	var nodeUpdate = nodeEnter.transition()
 		.duration(duration)
 		.attr("transform", function (d) {
 			return "translate(" + d.y + "," + d.x + ")";
 		});
 
+	nodeUpdate.select('circle')
+		.attr('r', 7);
+	
+		
 	var nodeExit = node.exit()
 		.transition()
 		.duration(duration)
 		.attr("transform", function(d) { return "translate(" + d.parent.y + "," + d.parent.x + ")"; })
 		.remove();
-		
+	
+	nodeExit.select('circle')
+		.attr('r', 1e-6);
+	
 	renderText();
 }
 
