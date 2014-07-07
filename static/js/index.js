@@ -62,7 +62,7 @@ d3.json("result.json", function (error, json) {
 		.attr("class", "link")
 		.attr("d", diagonal);
 		
-	var node = svg.selectAll(".node")
+	var node = svg.selectAll("g.node")
 		.data(nodes)
 		.enter()
 		.append("g")
@@ -99,68 +99,68 @@ function update(level) {
 		d.children && d.children.forEach(cut);
 		d._children && d._children.forEach(cut);
 	}
-	console.log('before:', root);
+	//console.log('before:', root);
 	root.children.forEach(cut);
-	console.log('after:', root);
+	//console.log('after:', root);
 	//recaculate tree's layout
 	var nodes = tree.nodes(root),
 		links = tree.links(nodes);
 
 	nodes.forEach(normalize);
 
-	var link = svg.selectAll(".link")
-		.data(links);
+	// var link = svg.selectAll(".link")
+		// .data(links);
 		
-	link.enter()
-		.insert('path', 'g')
-		.attr("class", "link")
-		.attr('d', function(d) {
-			var o = {x: root.x, y: root.y};
-			return diagonal({source: o, target: o});
-		});
+	// link.enter()
+		// .insert('path', 'g')
+		// .attr("class", "link")
+		// .attr('d', function(d) {
+			// var o = {x: d.source.x, y: d.source.y};
+			// return diagonal({source: o, target: o});
+		// });
 
-	link.transition()
-		.duration(duration)
-		.attr("d", diagonal);
+	// link.transition()
+		// .duration(duration)
+		// .attr("d", diagonal);
 	
-	link.exit()
-		.transition()
-		.duration(duration)
-		.attr('d', function(d) {
-			var o = {x:root.x, y: root.y};
-			return diagonal({source: o, target: o});
-		})
-		.remove();
+	// link.exit()
+		// .transition()
+		// .duration(duration)
+		// .attr('d', function(d) {
+			// var o = {x:d.source.x, y: d.source.y};
+			// return diagonal({source: o, target: o});
+		// })
+		// .remove();
 		
 		
 	var node = svg.selectAll(".node")
 		.data(nodes);
 		
-	node.enter()
+	var nodeEnter = node.enter()
 		.append("g")
 		.attr("class", function (d) {
 			return 'node ' + (d.game ? 'run' : 'result');
 		})
 		.attr('transform', function (d) {
-			return 'translate(' + root.y + ',' + root.x + ')';
+			return 'translate(' + d.parent.y + ',' + d.parent.x + ')';
 		});
 		
-	node.append("circle")
+	nodeEnter.append("circle")
 		.attr("r", 7)
 		.attr('class', function (d) {
 			return !d.game ? d.winner : '';
 		});
 		
-	node.transition()
+	nodeEnter.transition()
 		.duration(duration)
 		.attr("transform", function (d) {
 			return "translate(" + d.y + "," + d.x + ")";
 		});
 
-	node.exit()
+	var nodeExit = node.exit()
 		.transition()
 		.duration(duration)
-		.attr("transform", function(d) { return "translate(" + root.y + "," + root.x + ")"; })
+		.attr("transform", function(d) { return "translate(" + d.parent.y + "," + d.parent.x + ")"; })
 		.remove();
 		
 	renderText();
@@ -171,6 +171,8 @@ function normalize(d) {
 }
 
 function renderText() {
+
+	return;
 
 	svg.selectAll('.node.result')
 	.each(function (d) {
