@@ -31,7 +31,8 @@ var svg = d3.select("body").append("svg")
 	.append("g")
 	.attr("transform", "translate(100,0)");
 
-var root;	
+var root;
+var i = 0;
 	
 d3.json("result.json", function (error, json) {
 	root = json;
@@ -42,28 +43,35 @@ d3.json("result.json", function (error, json) {
 	//calculate node's depth
 	tree.nodes(root);
 	
-	function cutFirst(d) {
-		d._children = d.children;
-		d.children = null;
-	};
+	// function cutFirst(d) {
+		// d._children = d.children;
+		// d.children = null;
+	// };
 
-	root.children.forEach(cutFirst);	
-	console.log('loaded json:', root);
+	var limit = 2 * 2 - 1;
+ 
+	function cut(d) {
+
+		if (d.depth == limit) {
+			d._children = d.children;
+			d.children = null;
+		} else {
+			d.children = d._children || d.children;
+			d._children = null;
+		}
+		d.children && d.children.forEach(cut);
+		d._children && d._children.forEach(cut);
+	}
+	
+	root.children.forEach(cut);
 	//recalculate tree's layout
 	var nodes = tree.nodes(root),
 		links = tree.links(nodes);
 
 	nodes.forEach(normalize);
-	
-	var link = svg.selectAll(".link")
-		.data(links)
-		.enter()
-		.append("path")
-		.attr("class", "link")
-		.attr("d", diagonal);
 		
 	var node = svg.selectAll("g.node")
-		.data(nodes)
+		.data(nodes, function(d){return (d.id = ++i);})
 		.enter()
 		.append("g")
 		.attr("class", function (d) {
@@ -77,7 +85,13 @@ d3.json("result.json", function (error, json) {
 		.attr('class', function (d) {
 			return !d.game ? d.winner : '';
 		});
-		
+	
+	var link = svg.selectAll(".link")
+		.data(links, function(d){return d.target.id;})
+		.enter()
+		.append("path")
+		.attr("class", "link")
+		.attr("d", diagonal);
 	renderText();
 });
 
@@ -99,42 +113,41 @@ function update(level) {
 		d.children && d.children.forEach(cut);
 		d._children && d._children.forEach(cut);
 	}
-	console.log('before:', root);
+
 	root.children.forEach(cut);
-	console.log('after:', root);
-	//recaculate tree's layout
+
 	var nodes = tree.nodes(root),
 		links = tree.links(nodes);
 
 	nodes.forEach(normalize);
 
-	// var link = svg.selectAll(".link")
-		// .data(links);
+	var link = svg.selectAll(".link")
+		.data(links, function(d){return d.target.id;});
 		
-	// link.enter()
-		// .insert('path', 'g')
-		// .attr("class", "link")
-		// .attr('d', function(d) {
-			// var o = {x: d.source.x, y: d.source.y};
-			// return diagonal({source: o, target: o});
-		// });
+	link.enter()
+		.insert('path', 'g')
+		.attr("class", "link")
+		.attr('d', function(d) {
+			var o = {x: d.source.x, y: d.source.y};
+			return diagonal({source: o, target: o});
+		});
 
-	// link.transition()
-		// .duration(duration)
-		// .attr("d", diagonal);
+	link.transition()
+		.duration(duration)
+		.attr("d", diagonal);
 	
-	// link.exit()
-		// .transition()
-		// .duration(duration)
-		// .attr('d', function(d) {
-			// var o = {x:d.source.x, y: d.source.y};
-			// return diagonal({source: o, target: o});
-		// })
-		// .remove();
+	link.exit()
+		.transition()
+		.duration(duration)
+		.attr('d', function(d) {
+			var o = {x:d.source.x, y: d.source.y};
+			return diagonal({source: o, target: o});
+		})
+		.remove();
 		
 		
-	var node = svg.selectAll(".node")
-		.data(nodes);
+	var node = svg.selectAll("g.node")
+		.data(nodes, function(d){return d.id;});
 		
 	var nodeEnter = node.enter()
 		.append("g")
@@ -144,7 +157,8 @@ function update(level) {
 		.attr('transform', function (d) {
 			return 'translate(' + d.parent.y + ',' + d.parent.x + ')';
 		});
-		
+	
+	var count = 0;
 	nodeEnter.append("circle")
 		.attr("r", 1e-6)
 		.attr('class', function (d) {
@@ -159,7 +173,6 @@ function update(level) {
 
 	nodeUpdate.select('circle')
 		.attr('r', 7);
-	
 		
 	var nodeExit = node.exit()
 		.transition()
