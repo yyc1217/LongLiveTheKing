@@ -37,7 +37,7 @@ var i = 0;
 d3.json("result.json", function (error, json) {
 	root = json;
 	
-	root.parent = { x : 0, y : (height / 2) };
+	root.parent = { y : 0, x : (height / 2) };
 	
 	
 	//calculate node's depth
@@ -48,51 +48,53 @@ d3.json("result.json", function (error, json) {
 		// d.children = null;
 	// };
 
-	var limit = 2 * 2 - 1;
+	// var limit = 2 * 2 - 1;
  
-	function cut(d) {
+	// function cut(d) {
 
-		if (d.depth == limit) {
-			d._children = d.children;
-			d.children = null;
-		} else {
-			d.children = d._children || d.children;
-			d._children = null;
-		}
-		d.children && d.children.forEach(cut);
-		d._children && d._children.forEach(cut);
-	}
+		// if (d.depth == limit) {
+			// d._children = d.children;
+			// d.children = null;
+		// } else {
+			// d.children = d._children || d.children;
+			// d._children = null;
+		// }
+		// d.children && d.children.forEach(cut);
+		// d._children && d._children.forEach(cut);
+	// }
 	
-	root.children.forEach(cut);
-	//recalculate tree's layout
-	var nodes = tree.nodes(root),
-		links = tree.links(nodes);
+	// root.children.forEach(cut);
+	// recalculate tree's layout
+	// var nodes = tree.nodes(root),
+		// links = tree.links(nodes);
 
-	nodes.forEach(normalize);
+	// nodes.forEach(normalize);
 		
-	var node = svg.selectAll("g.node")
-		.data(nodes, function(d){return (d.id = ++i);})
-		.enter()
-		.append("g")
-		.attr("class", function (d) {
-			return 'node ' + (d.game ? 'run' : 'result');
-		})
-		.attr("transform", function (d) {
-			return "translate(" + d.y + "," + d.x + ")";
-		})
-		.append("circle")
-		.attr("r", 7)
-		.attr('class', function (d) {
-			return !d.game ? d.winner : '';
-		});
+	// var node = svg.selectAll("g.node")
+		// .data(nodes, function(d){return (d.id = ++i);})
+		// .enter()
+		// .append("g")
+		// .attr("class", function (d) {
+			// return 'node ' + (d.game ? 'run' : 'result');
+		// })
+		// .attr("transform", function (d) {
+			// return "translate(" + d.y + "," + d.x + ")";
+		// })
+		// .append("circle")
+		// .attr("r", 7)
+		// .attr('class', function (d) {
+			// return !d.game ? d.winner : '';
+		// });
 	
-	var link = svg.selectAll(".link")
-		.data(links, function(d){return d.target.id;})
-		.enter()
-		.append("path")
-		.attr("class", "link")
-		.attr("d", diagonal);
-	renderText();
+	// var link = svg.selectAll(".link")
+		// .data(links, function(d){return d.target.id;})
+		// .enter()
+		// .append("path")
+		// .attr("class", "link")
+		// .attr("d", diagonal);
+		
+	update(1);
+
 });
 
 d3.select(self.frameElement).style("height", height + "px");
@@ -121,33 +123,8 @@ function update(level) {
 
 	nodes.forEach(normalize);
 
-	var link = svg.selectAll(".link")
-		.data(links, function(d){return d.target.id;});
-		
-	link.enter()
-		.insert('path', 'g')
-		.attr("class", "link")
-		.attr('d', function(d) {
-			var o = {x: d.source.x, y: d.source.y};
-			return diagonal({source: o, target: o});
-		});
-
-	link.transition()
-		.duration(duration)
-		.attr("d", diagonal);
-	
-	link.exit()
-		.transition()
-		.duration(duration)
-		.attr('d', function(d) {
-			var o = {x:d.source.x, y: d.source.y};
-			return diagonal({source: o, target: o});
-		})
-		.remove();
-		
-		
 	var node = svg.selectAll("g.node")
-		.data(nodes, function(d){return d.id;});
+		.data(nodes, function(d){return d.id || (d.id = ++i);});
 		
 	var nodeEnter = node.enter()
 		.append("g")
@@ -182,6 +159,34 @@ function update(level) {
 	
 	nodeExit.select('circle')
 		.attr('r', 1e-6);
+
+	
+	var link = svg.selectAll(".link")
+		.data(links, function(d){return d.target.id;});
+		
+	link.enter()
+		.insert('path', 'g')
+		.attr("class", "link")
+		.attr('d', function(d) {
+			var o = {x: d.source.x, y: d.source.y};
+			return diagonal({source: o, target: o});
+		});
+
+	link.transition()
+		.duration(duration)
+		.attr("d", diagonal);
+	
+	link.exit()
+		.transition()
+		.duration(duration)
+		.attr('d', function(d) {
+			var o = {x:d.source.x, y: d.source.y};
+			return diagonal({source: o, target: o});
+		})
+		.remove();
+		
+		
+
 	
 	renderText();
 }
