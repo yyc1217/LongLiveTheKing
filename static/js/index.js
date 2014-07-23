@@ -41,13 +41,14 @@ d3.json("result.json", function (error, json) {
 	// root.parent = { y : 0, x : (height / 2), y0 : 0, x0 : (height / 2) };
 	// calculate tree layout first
 	var nodes = tree.nodes(root);
-	nodes.forEach(function(d) {
-		d.x0 = d.x;
-		d.y0 = d.y;
-	});	
+
+	root.x0 = root.x;
+	root.y0 = root.y;
+	
 	root.parent = {};
-	root.parent.x0 = root.x0;
-	root.parent.y0 = root.y0;
+	root.parent.x0 = root.x;
+	root.parent.y0 = root.y;
+
 	update(1);
 });
 
@@ -89,7 +90,6 @@ function update(level) {
 			return 'translate(' + d.parent.y0 + ',' + d.parent.x0 + ')';
 		});
 	
-	var count = 0;
 	nodeEnter.append("circle")
 		.attr("r", 1e-6)
 		.attr('class', function (d) {
