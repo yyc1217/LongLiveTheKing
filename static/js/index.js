@@ -42,12 +42,13 @@ d3.json("result.json", function (error, json) {
 	// calculate tree layout first
 	var nodes = tree.nodes(root);
 
-	root.x0 = root.x;
-	root.y0 = root.y;
+
 	
-	root.parent = {};
-	root.parent.x0 = root.x;
-	root.parent.y0 = root.y;
+	root.parent = root;
+	
+	// root.parent = {};
+	// root.parent.x0 = root.x;
+	// root.parent.y0 = root.y;
 
 	update(1);
 });
@@ -59,7 +60,6 @@ function update(level) {
 	var limit = level * 2 - 1;
  
 	function cut(d) {
-
 		if (d.depth == limit) {
 			d._children = d.children;
 			d.children = null;
@@ -72,7 +72,18 @@ function update(level) {
 	}
 
 	root.children.forEach(cut);
-
+	
+	// Stash the old positions for transition.
+	function stash(d) {
+		d.x0 = d.x;
+		d.y0 = d.y;
+		d.children && d.children.forEach(stash);
+	}
+	
+	root.x0 = root.x;
+	root.y0 = root.y;
+	root.children.forEach(stash);
+	
 	var nodes = tree.nodes(root),
 		links = tree.links(nodes);
 
@@ -115,10 +126,10 @@ function update(level) {
 		.attr('r', 1e-6);
 
 	 // Stash the old positions for transition.
-	nodes.forEach(function(d) {
-		d.x0 = d.x;
-		d.y0 = d.y;
-	});
+	// nodes.forEach(function(d) {
+		// d.x0 = d.x;
+		// d.y0 = d.y;
+	// });
 		
 	var link = svg.selectAll(".link")
 		.data(links, function(d){return d.target.id;});
