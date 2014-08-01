@@ -85,15 +85,15 @@ function update(level) {
 	root.children.forEach(cut);
 	
 	// Stash the old positions for transition.
-	function stash(d) {
-		d.x0 = d.x;
-		d.y0 = d.y;
-		d.children && d.children.forEach(stash);
-	}
+	// function stash(d) {
+		// d.x0 = d.x;
+		// d.y0 = d.y;
+		// d.children && d.children.forEach(stash);
+	// }
 	
-	root.x0 = root.x;
-	root.y0 = root.y;
-	root.children.forEach(stash);
+	// root.x0 = root.x;
+	// root.y0 = root.y;
+	// root.children.forEach(stash);
 	
 	var nodes = tree.nodes(root),
 		links = tree.links(nodes);
@@ -109,7 +109,10 @@ function update(level) {
 			return 'node ' + (d.game ? 'run' : 'result');
 		})
 		.attr('transform', function (d) {
-			return 'translate(' + d.parent.y0 + ',' + d.parent.x0 + ')';
+			var y0 = d.parent.y0 || d.parent.parent.y0;
+			var x0 = d.parent.x0 || d.parent.parent.x0;
+			return 'translate(' + y0 + ',' + x0 + ')';
+			//return 'translate(' + d.parent.y0 + ',' + d.parent.x0 + ')';
 		});
 	
 	nodeEnter.append("circle")
@@ -137,10 +140,10 @@ function update(level) {
 		.attr('r', 1e-6);
 
 	 // Stash the old positions for transition.
-	// nodes.forEach(function(d) {
-		// d.x0 = d.x;
-		// d.y0 = d.y;
-	// });
+	nodes.forEach(function(d) {
+		d.x0 = d.x;
+		d.y0 = d.y;
+	});
 		
 	var link = svg.selectAll(".link")
 		.data(links, function(d){return d.target.id;});
