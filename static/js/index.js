@@ -109,7 +109,7 @@ function update(level) {
 			return 'node ' + (d.game ? 'run' : 'result');
 		})
 		.attr('transform', function (d) {
-			return 'translate(' + d.subroot.parent.y + ',' + d.subroot.parent.x + ')';
+			return 'translate(' + d.subroot.y + ',' + d.subroot.x + ')';
 		});
 	
 	nodeEnter.append("circle")
@@ -130,7 +130,7 @@ function update(level) {
 	var nodeExit = node.exit()
 		.transition()
 		.duration(duration)
-		.attr("transform", function(d) { return "translate(" + d.subroot.parent.y + "," + d.subroot.parent.x + ")"; })
+		.attr("transform", function(d) { return "translate(" + d.subroot.y + "," + d.subroot.x + ")"; })
 		.remove();
 	
 	nodeExit.select('circle')
