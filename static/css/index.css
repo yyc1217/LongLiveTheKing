@@ -39,3 +39,6 @@ text.magic {
   stroke: #ccc;
   stroke-width: 1.5px;
 }
+.updater {
+	position: absolute;
+}
