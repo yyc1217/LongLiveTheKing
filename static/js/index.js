@@ -33,7 +33,7 @@ var svg = d3.select("body").append("svg")
 
 var root;
 var i = 0;
-var DEPTH_OF_LAYER = 2;
+var LEVELS_OF_LAYER = 2;
 
 d3.json("result.json", function (error, json) {
 
@@ -43,34 +43,8 @@ d3.json("result.json", function (error, json) {
 	
 	// decide subroot for each node
 	nodes.forEach(function(d) {
-		if ( d.depth % DEPTH_OF_LAYER == 0 ) {
-			d.subroot = d;
-		} else {
-			d.subroot = d.parent.subroot;
-		}
+		d.subroot = (d.depth % LEVELS_OF_LAYER == 0) ? d : d.parent.subroot;
 	});
-
-	
-	function cut(d) {
-		d._children = d.children;
-		d.children = null;
-	}
-	// seperate depth 1 and 2
-	root.children.forEach(cut);
-	
-	// recalculate tree layout
-	tree.nodes(root);
-	
-	root.x0 = root.x;
-	root.y0 = root.y;
-	root.parent = root;
-	
-	function zip(d) {
-		d.children = d._children;
-		d._children = null;
-	}
-	// join depth 1 and 2
-	root.children.forEach(zip);
 	
 	update(1);
 });
@@ -79,7 +53,7 @@ d3.select(self.frameElement).style("height", height + "px");
 
 function update(level) {
  
-	var limit = level * DEPTH_OF_LAYER - 1;
+	var limit = level * LEVELS_OF_LAYER - 1;
  
 	function cut(d) {
 		if (d.depth == limit) {
@@ -135,12 +109,6 @@ function update(level) {
 	
 	nodeExit.select('circle')
 		.attr('r', 1e-6);
-
-	 // Stash the old positions for transition.
-	nodes.forEach(function(d) {
-		d.x0 = d.x;
-		d.y0 = d.y;
-	});
 		
 	var link = svg.selectAll(".link")
 		.data(links, function(d){return d.target.id;});
