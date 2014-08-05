@@ -33,12 +33,23 @@ var svg = d3.select("body").append("svg")
 
 var root;
 var i = 0;
-	
+var DEPTH_OF_LAYER = 2;
+
 d3.json("result.json", function (error, json) {
 
 	root = json;	
-	// we need 'depth' first
-	tree.nodes(root);
+	// first we need 'depth'
+	var nodes = tree.nodes(root);
+	
+	// decide subroot for each node
+	nodes.forEach(function(d) {
+		if ( d.depth % DEPTH_OF_LAYER == 0 ) {
+			d.subroot = d;
+		} else {
+			d.subroot = d.parent.subroot;
+		}
+	});
+
 	
 	function cut(d) {
 		d._children = d.children;
@@ -50,9 +61,9 @@ d3.json("result.json", function (error, json) {
 	// recalculate tree layout
 	tree.nodes(root);
 	
-	root.parent = root;
 	root.x0 = root.x;
 	root.y0 = root.y;
+	root.parent = root;
 	
 	function zip(d) {
 		d.children = d._children;
@@ -68,7 +79,7 @@ d3.select(self.frameElement).style("height", height + "px");
 
 function update(level) {
  
-	var limit = level * 2 - 1;
+	var limit = level * DEPTH_OF_LAYER - 1;
  
 	function cut(d) {
 		if (d.depth == limit) {
@@ -83,18 +94,7 @@ function update(level) {
 	}
 
 	root.children.forEach(cut);
-	
-	// Stash the old positions for transition.
-	// function stash(d) {
-		// d.x0 = d.x;
-		// d.y0 = d.y;
-		// d.children && d.children.forEach(stash);
-	// }
-	
-	// root.x0 = root.x;
-	// root.y0 = root.y;
-	// root.children.forEach(stash);
-	
+
 	var nodes = tree.nodes(root),
 		links = tree.links(nodes);
 
@@ -109,10 +109,7 @@ function update(level) {
 			return 'node ' + (d.game ? 'run' : 'result');
 		})
 		.attr('transform', function (d) {
-			var y0 = d.parent.y0 || d.parent.parent.y0;
-			var x0 = d.parent.x0 || d.parent.parent.x0;
-			return 'translate(' + y0 + ',' + x0 + ')';
-			//return 'translate(' + d.parent.y0 + ',' + d.parent.x0 + ')';
+			return 'translate(' + d.subroot.parent.y + ',' + d.subroot.parent.x + ')';
 		});
 	
 	nodeEnter.append("circle")
@@ -133,7 +130,7 @@ function update(level) {
 	var nodeExit = node.exit()
 		.transition()
 		.duration(duration)
-		.attr("transform", function(d) { return "translate(" + d.parent.y + "," + d.parent.x + ")"; })
+		.attr("transform", function(d) { return "translate(" + d.subroot.parent.y + "," + d.subroot.parent.x + ")"; })
 		.remove();
 	
 	nodeExit.select('circle')
