@@ -69,7 +69,7 @@ function update(level) {
 
 	root.children.forEach(cut);
 
-	var nodes = tree.nodes(root),
+	var nodes = tree.nodes(root).reverse(),
 		links = tree.links(nodes);
 
 	nodes.forEach(normalize);
@@ -117,7 +117,8 @@ function update(level) {
 		.insert('path', 'g')
 		.attr("class", "link")
 		.attr('d', function(d) {
-			var o = {x: d.source.x, y: d.source.y};
+			var source = (d.target.subroot == d.target) ? d.source : d.target.subroot;
+			var o = {x: source.x, y: source.y};
 			return diagonal({source: o, target: o});
 		});
 
@@ -129,7 +130,8 @@ function update(level) {
 		.transition()
 		.duration(duration)
 		.attr('d', function(d) {
-			var o = {x:d.source.x, y: d.source.y};
+			var source = (d.target.subroot == d.target) ? d.source : d.target.subroot;
+			var o = {x:source.x, y: source.y};
 			return diagonal({source: o, target: o});
 		})
 		.remove();
