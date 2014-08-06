@@ -93,7 +93,7 @@ function update(level) {
 			return !d.game ? d.winner : '';
 		});
 		
-	var nodeUpdate = nodeEnter.transition()
+	var nodeUpdate = node.transition()
 		.duration(duration)
 		.attr("transform", function (d) {
 			return "translate(" + d.y + "," + d.x + ")";
