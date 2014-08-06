@@ -33,7 +33,7 @@ var svg = d3.select("body").append("svg")
 
 var root;
 var i = 0;
-var LEVELS_OF_LAYER = 2;
+var LEVELS_OF_LAYER = 3;
 
 d3.json("result.json", function (error, json) {
 
@@ -146,10 +146,9 @@ function normalize(d) {
 
 function renderText() {
 
-	return;
-
-	svg.selectAll('.node.result')
-	.each(function (d) {
+	svg.selectAll('g.node.result')
+		.each(function (d) {
+		
 		d3.select(this)
 		.append('text')
 		.attr('dy', '.3em')
@@ -179,7 +178,7 @@ function renderText() {
 		});
 	});
 	
-	svg.selectAll('.node.run')
+	svg.selectAll('g.node.run')
 		.each(function (d) {
 			d3.select(this)
 			.append('text')
