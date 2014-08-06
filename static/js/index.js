@@ -44,6 +44,7 @@ d3.json("result.json", function (error, json) {
 	// decide subroot for each node
 	nodes.forEach(function(d) {
 		d.subroot = (d.depth % LEVELS_OF_LAYER == 0) ? d : d.parent.subroot;
+		d.id = ++i;
 	});
 	
 	update(1);
@@ -75,7 +76,7 @@ function update(level) {
 	nodes.forEach(normalize);
 
 	var node = svg.selectAll("g.node")
-		.data(nodes, function(d){return d.id || (d.id = ++i);});
+		.data(nodes, function(d){return d.id;});
 		
 	var nodeEnter = node.enter()
 		.append("g")
@@ -109,7 +110,7 @@ function update(level) {
 	
 	nodeExit.select('circle')
 		.attr('r', 1e-6);
-		
+			
 	var link = svg.selectAll(".link")
 		.data(links, function(d){return d.target.id;});
 		
