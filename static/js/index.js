@@ -86,11 +86,11 @@ function update(level) {
 			return 'node ' + (d.game ? 'run' : 'result');
 		})
 		.attr('transform', function (d) {
-			return 'translate(' + d.subroot.y + ',' + d.subroot.x + ')';
+			return 'translate(' + d.subroot.y + ',' + d.subroot.x + ') scale(0)';
 		});
 
 	nodeEnter.append("circle")
-	.attr("r", 1e-6)
+	.attr("r", 7)
 	.attr('class', function (d) {
 		return !d.game ? d.winner : '';
 	});
@@ -147,22 +147,16 @@ function update(level) {
 	var nodeUpdate = node.transition()
 		.duration(duration)
 		.attr("transform", function (d) {
-			return "translate(" + d.y + "," + d.x + ")";
+			return "translate(" + d.y + "," + d.x + ") scale(1)";
 		});
-
-	nodeUpdate.select('circle')
-	.attr('r', 7);
 
 	var nodeExit = node.exit()
 		.transition()
 		.duration(duration)
 		.attr("transform", function (d) {
-			return "translate(" + d.subroot.y + "," + d.subroot.x + ")";
+			return "translate(" + d.subroot.y + "," + d.subroot.x + ") scale(0)";
 		})
 		.remove();
-
-	nodeExit.select('circle')
-	.attr('r', 1e-6);
 
 	var link = svg.selectAll(".link")
 		.data(links, function (d) {
