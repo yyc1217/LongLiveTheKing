@@ -1,16 +1,27 @@
-var result = [];
+var results = [];
 
 d3.json("result.json", function (error, root) {
 	
-	root.isRoot = true;
-
 	root.children.forEach(traversal);
 	
-	function tranversal(d) {
-		
-		if (d.tobeKing && d.magicNumber == 0) {
-			
-		}
+	function traversal(d) {
 	
+		if (!d.game) {
+			var pointer = d,
+				result = [];
+			
+			do {
+				result.push(pointer.name);
+				pointer = pointer.parent.parent;
+			} while (pointer)
+			
+			results.push(result.reverse());
+		}
+		
+		d.children && d.children.forEach(traversal);
+		
 	};
+	
+	document.getElementById('panel').innerHTML = JSON.stringify(results);
+	
 });
